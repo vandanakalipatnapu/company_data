@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<div class="container">
+	<center><h2 class="text-danger">Jobs List</h2></center>
+	<hr/>
+	<div class="text-success"> Company Name:<%= @company.name %></div><br/>
+	
+
+<h3>Jobs in <%= @company.name %>:</h3><br/>
+<% @company.jobs.each do |job| %>
+	<div class="text-danger">S.No :<%= job.id %></div>
+	<div class="text-success">Title:<%= job.title %></div>
+	<div class="text-success">Skills:<%= job.skill_set %></div>
+	<div class="text-success">Experience:<%= job.experience %></div>
+	<div><%= link_to "edit",edit_company_job_path(job.company,job),class:"btn btn-info btn-sm" %> |
+	<%= link_to "delete",[job.company,job],method: :delete,data:{:confirm =>"Are you sure to detele?"},class:"btn btn-sm btn-info" %>
+<hr/>
+	
+<% end %>
+
+<hr/>
+<%= link_to "Company Form",new_company_job_path(@company.id),class:"btn btn-sm btn-info" %>
+<%= link_to "All companies",companies_path ,class:"btn btn-sm btn-info"%>
+
+</div>
