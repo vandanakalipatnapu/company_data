@@ -1,0 +1,22 @@
+<style>
+	.align{font-size: 15px;}
+</style>
+
+<div class="container">
+<center><h3 class="text-danger"><%= @candidate.name %> applied jobs</h3></center>
+<hr/>
+<ul>
+<% @candidates.each do |c|%>
+	
+	<li><div class="text-success align"> <%= c.title %></div></li>
+<% end %><br/>
+</ul>
+
+<div class="text-success align">Number of Jobs Applied: <%= @candidates.count %></div>
+
+<%= link_to "back",company_job_path(@company.id,@job.id),class:"btn btn-sm btn-info" %>
+
+<%= link_to "All Companies",companies_path,class:"btn btn-sm btn-info" %>
+
+
+</div>

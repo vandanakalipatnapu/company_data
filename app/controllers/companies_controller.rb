@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+	layout "header_footer"
+
 	def new
 		@company=Company.new
 	end
@@ -7,8 +9,9 @@ class CompaniesController < ApplicationController
 	def create
 		@company=Company.new(company_params)
 		if @company.save
+			
 			flash[:success] = "Welcome to the #{@company.name} jobs "
-			redirect_to @company
+			 redirect_to @company
 		else
 			render 'new'
 		end
@@ -16,6 +19,7 @@ class CompaniesController < ApplicationController
 
 	def index
 		@companies=Company.all
+		# render xml: @companies
 	end
 
 	def edit

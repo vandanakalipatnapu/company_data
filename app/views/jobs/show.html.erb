@@ -1,0 +1,8 @@
+
+<div class= "container">
+	<%= render "candidates/candidateshow" %>
+
+	<%= link_to "candidateform", new_company_job_candidate_path(@company.id,@job.id),class:"btn btn-sm btn-info" %>
+	<%= link_to "All Companies",companies_path,class:"btn btn-sm btn-info" %>
+	<%= link_to "Jobs List",@company,class:"btn btn-sm btn-info" %><br/><br/><br/><br/>
+</div>

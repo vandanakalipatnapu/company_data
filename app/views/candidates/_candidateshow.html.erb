@@ -1,0 +1,21 @@
+<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+
+<div class="container">
+	<center><h2 class="text-danger">Candidates List</h2></center>
+	<hr/>
+	<h3 class="text-success"> Company Name:<%= @company.name %></h3><br/>
+	<h3 class="text-info">List of candidates applied for <%= @job.title %>:</h3><br/>
+	
+	<% @job.candidates.each do |c| %>
+		<div class="text-danger">S.No :<%= c.id %></div>
+		<div class="text-success">Candidate Name:<%= link_to c.name , company_job_candidate_path(@company.id,@job.id,c)%></div>
+		<div class="text-success">Email:<%= link_to c.email %></div>
+		<div class="text-success">Phone Number:<%= c.phno %></div>
+		<div><%= link_to "Edit",edit_company_job_candidate_path(@company.id,@job.id,c),class:"btn btn-sm btn-info" %>|
+		<%= link_to "Delete",company_job_candidates_path(@company.id,@job.id,c),method: :delete,data:{confirm:"Are you sure to delete ?"},class:"btn btn-sm btn-info" %></div>
+
+		<hr/>
+
+	<% end %>
+	
+</div>

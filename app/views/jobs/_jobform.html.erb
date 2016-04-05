@@ -1,44 +1,44 @@
 
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+ -->
 <center><h3 class="text-danger">New Job</h3></center> 
 <div class="container">
-<%= form_for [@company,@job] do |f| %>
+	<%= form_for [@company,@job] do |f| %>
 	
-	<div class="form-group">
-		<%= f.label :Title,class:"control-label col-sm-4" %>
-		<%= f.text_field :title,class:"form-control col-sm-4"%>
-	</div>
+		<div class="form-group">
+			<%= f.label :Title,class:"control-label col-sm-4" %>
+			<%= f.text_field :title,class:"form-control col-sm-4"%>
+		</div>
 
-	<div class="form-group">
-		<%= f.label :Skill_Set,class:"control-label col-sm-4" %>
-		<%= f.text_field :skill_set,class:"form-control col-sm-4"%>
-	</div>
+		<div class="form-group">
+			<%= f.label :Skill_Set,class:"control-label col-sm-4" %>
+			<%= f.text_field :skill_set,class:"form-control col-sm-4"%>
+		</div>
 
-	<div class="form-group">
-		<%= f.label :Experience,class:"control-label col-sm-4" %>
-		<%= f.text_field :experience,class:"form-control col-sm-4"%>
-	</div>
+		<div class="form-group">
+			<%= f.label :Experience,class:"control-label col-sm-4" %>
+			<%= f.text_field :experience,class:"form-control col-sm-4"%>
+		</div>
 
-	<%= f.submit "save",class:"btn btn-sm btn-info" %>
-	<%= link_to "back" ,@company,class:"btn btn-sm btn-info" %>
+		<%= f.submit "Save",class:"btn btn-sm btn-info" %>
+		<%= link_to "Back" ,@company,class:"btn btn-sm btn-info" %>
 
-<% end %>
+	<% end %>
 
 	<% if @job.errors.present? %>
-		    <div id="error_explanation">
-		      <h3 class="text-danger">
+		<div id="error_explanation">
+		    <h3 class="text-danger">
 		        <%= pluralize(@job.errors.count, "error") %> prohibited
 		        this article from being saved:
-		      </h3>
-		      <ul>
+		    </h3>
+		    <ul>
 		        <% @job.errors.full_messages.each do |msg| %>
-		          <div class="alert alert-danger">
-		          	<li><%= msg %></li>
-		          </div>
+		        	<div class="alert alert-danger">
+		          		<li><%= msg %></li>
+		          	</div>
 		        <% end %>
-		      </ul>
-		    </div>
-  		<% end %>
+		    </ul>
+		</div>
+  	<% end %>
 
 </div>
